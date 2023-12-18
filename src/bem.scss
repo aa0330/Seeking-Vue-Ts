@@ -1,0 +1,41 @@
+$namespace: 'xc' !default;
+$block-sel: "-" !default;
+$elem-sel: "__" !default;
+$mod-sel: "--" !default;
+
+// 定义混入
+@mixin b($block) {
+    $B: #{$namespace + $block-sel + $block};
+
+    .#{$B} {
+        @content
+    }
+}
+
+@mixin e($el) {
+    $selector: &;
+    @at-root {
+        #{ $selector + $elem-sel + $el} {
+            @content;
+        }
+    }
+}
+
+@mixin m($m) {
+    $selector: &;
+    @at-root {
+        #{ $selector + $mod-sel + $m} {
+            @content;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
